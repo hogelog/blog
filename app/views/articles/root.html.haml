@@ -1,0 +1,9 @@
+- if @articles.blank?
+  There are no articles.
+- else
+  - @articles.each do |article|
+    = render article
+  = paginate @articles
+
+- if @login_user
+  = link_to 'New Article', new_article_path, class: 'btn btn-default'

@@ -1,0 +1,12 @@
+- @page_title = 'Archive'
+
+- if @articles.blank?
+  There are no articles.
+- else
+  %ul
+  - @articles.each do |article|
+    %li
+      = link_to article do
+        = article.title
+        %small (#{datetime_format(article.created_at)})
+  = paginate @articles

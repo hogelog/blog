@@ -1,0 +1,11 @@
+%nav.navbar.navbar-default{role: 'navigation'}
+  .container
+    .navbar-header
+      %button.navbar-toggle{type: 'button',
+                            data: {toggle: 'collapse',
+                                   target: '.header-navbar-collapse'}}
+        %span.icon-bar
+      = link_to 'hogelog blog! blog!', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse.header-navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to "Archive", articles_path

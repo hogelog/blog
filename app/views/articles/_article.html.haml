@@ -1,0 +1,24 @@
+.panel.panel-default
+  .panel-heading
+    %h1.panel-title.page-header
+      %strong= article.title
+      - if @login_user
+        = link_to "Edit",
+                  edit_article_path(article),
+                  class: "btn btn-default btn-xs"
+        = link_to 'Destroy',
+                  article,
+                  class: "btn btn-default btn-xs",
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }
+  .panel-body
+    = article.text
+  .panel-footer
+    %strong @#{article.user.username}
+    = link_to article do
+      %small (#{datetime_format(article.created_at)})
+    .container
+      %dl
+        = render article.comments
+      - if @login_user
+        = render 'comments/form', article: article

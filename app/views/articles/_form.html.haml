@@ -1,0 +1,17 @@
+- submit_text ||= 'Update'
+
+- if @article.errors.any?
+  #errorExplanation
+    %ul
+      - @article.errors.full_messages.each do |msg|
+        %li.label.label-warning= msg
+= form_for @article, html: {role: "form"} do |f|
+  %p
+    = f.text_area :title_text,
+                  id: "articleTextArea",
+                  class: "form-control",
+                  placeholder: "Article text",
+                  rows: 5
+
+  %p
+    = f.submit value: submit_text, class: "btn btn-default"

@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    %h1.panel-title.page-header
+      New Article
+  .panel-body
+    = render "form", submit_text: "Create"
+    = @article.text

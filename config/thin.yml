@@ -1,0 +1,3 @@
+pid: tmp/pids/thin.pid
+servers: 1
+daemonize: true
