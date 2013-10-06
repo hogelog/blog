@@ -1,7 +1,0 @@
-%p
-  %span= comment.text
-  - if @login_user
-    %small= link_to 'delete',
-      [comment.article, comment],
-      method: :delete,
-      data: { confirm: 'Are you sure?'}

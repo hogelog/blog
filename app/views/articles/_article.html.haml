@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h1.panel-title.page-header
+    %h1.panel-title
       %strong= article.title
       - if @login_user
         = link_to "Edit",
@@ -17,11 +17,11 @@
       = render "shared/twitter", url: article_url(article)
       = render "shared/facebook_like", url: article_url(article)
   .panel-footer
-    %strong @#{article.user.username}
-    = link_to article do
-      %small (#{datetime_format(article.created_at)})
-    .container
-      %dl
-        = render article.comments
-      - if @login_user
-        = render "comments/form", article: article
+    .comments.panel.panel-default
+      .panel-body
+        %strong @#{article.user.username}
+        = link_to article do
+          %small (#{datetime_format(article.created_at)})
+        .comments.panel
+          .panel-body
+            = render "shared/facebook_comment", url: article_url(article)

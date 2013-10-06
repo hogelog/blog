@@ -1,15 +1,6 @@
 require 'spec_helper'
 
 describe Article do
-  describe "#comments" do
-    let(:article) { create(:article) }
-    let(:comments) { 2.times.map{ create(:comment, article: article) } }
-
-    it "returns article's comments" do
-      expect(article.comments).to eq(comments)
-    end
-  end
-
   describe ".extract_title_text" do
     let(:title_text) { "#{title}\r\n#{text}" }
     subject { Article.extract_title_text(title_text) }
