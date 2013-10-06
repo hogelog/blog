@@ -50,5 +50,12 @@ describe Article do
 
       include_examples "extracts"
     end
+
+    context "when text contains empty lines" do
+      let(:title) { "hoge" }
+      let(:text) { "\r\n\r\nfuga" }
+
+      include_examples "extracts"
+    end
   end
 end

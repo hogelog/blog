@@ -48,6 +48,8 @@ gem 'dotenv-rails'
 
 gem 'kaminari'
 
+gem 'redcarpet'
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'

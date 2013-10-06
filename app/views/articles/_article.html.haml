@@ -12,7 +12,7 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" }
   .panel-body
-    = article.text
+    = markdown article.text
     .social-share.container
       = render "shared/twitter", url: article_url(article)
       = render "shared/facebook_like", url: article_url(article)

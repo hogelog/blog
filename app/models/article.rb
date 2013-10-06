@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
   validates :text, presence: true
 
   def self.extract_title_text(combined_text)
-    lines = combined_text.to_s.split
+    lines = combined_text.to_s.split(/(?:\r\n|\r|\n)/)
     text = lines.size > 1 ? lines[1..-1].join("\r\n") : ""
     {
       title: lines[0].to_s,
