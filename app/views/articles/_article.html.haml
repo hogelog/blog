@@ -6,13 +6,16 @@
         = link_to "Edit",
                   edit_article_path(article),
                   class: "btn btn-default btn-xs"
-        = link_to 'Destroy',
+        = link_to "Destroy",
                   article,
                   class: "btn btn-default btn-xs",
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }
+                  data: { confirm: "Are you sure?" }
   .panel-body
     = article.text
+    .social-share.container
+      = render "shared/twitter", url: article_url(article)
+      = render "shared/facebook_like", url: article_url(article)
   .panel-footer
     %strong @#{article.user.username}
     = link_to article do
@@ -21,4 +24,4 @@
       %dl
         = render article.comments
       - if @login_user
-        = render 'comments/form', article: article
+        = render "comments/form", article: article
