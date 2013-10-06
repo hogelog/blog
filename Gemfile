@@ -50,6 +50,8 @@ gem 'kaminari'
 
 gem 'redcarpet'
 
+gem 'highline'
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'

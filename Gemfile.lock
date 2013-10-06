@@ -193,6 +193,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   haml-rails
+  highline
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
