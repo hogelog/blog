@@ -12,7 +12,7 @@
     = csrf_meta_tags
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
   %body
-    = render "shared/facebook_jssdk"
+    .fb-root
     = render 'shared/navbar'
     .container
       = yield
