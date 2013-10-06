@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Blog::Application.config.secret_key_base = 'a43734ba12c4290269c80e8be104901ff41893900001f613cf144807f4e24293a934a7c92e0e0b5569ec96cd7ba5430d76e6e327e62418687647ce925f6cbac2'
+Blog::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || 'secret_token'
