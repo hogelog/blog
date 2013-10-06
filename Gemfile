@@ -52,6 +52,8 @@ gem 'redcarpet'
 
 gem 'highline'
 
+gem 'thin'
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'
@@ -62,7 +64,8 @@ group :development, :test do
 end 
 group :development do
   gem 'capistrano'
-  gem 'thin'
+  gem 'capistrano_colors'
+  gem 'capistrano-rbenv'
   gem 'pry-doc'
   gem 'rails-footnotes', '>= 3.7.9'
 end
