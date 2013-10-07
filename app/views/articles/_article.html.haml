@@ -13,15 +13,13 @@
                   data: { confirm: "Are you sure?" }
   .panel-body
     = markdown article.text
+    .container
+      %strong @#{article.user.username}
+      = link_to article do
+        %small (#{datetime_format(article.created_at)})
     .social-share.container
       = render "shared/twitter", url: article_url(article)
       = render "shared/facebook_like", url: article_url(article)
   .panel-footer
-    .comments.panel.panel-default
-      .panel-body
-        %strong @#{article.user.username}
-        = link_to article do
-          %small (#{datetime_format(article.created_at)})
-        .comments.panel
-          .panel-body
-            = render "shared/facebook_comment", url: article_url(article)
+    .comments
+      = render "shared/facebook_comment", url: article_url(article)

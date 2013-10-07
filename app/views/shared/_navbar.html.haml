@@ -9,3 +9,5 @@
     .collapse.navbar-collapse.header-navbar-collapse
       %ul.nav.navbar-nav
         %li= link_to "Archive", articles_path
+        - if @login_user
+          %li= link_to 'New Article', new_article_path
