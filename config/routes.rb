@@ -1,7 +1,6 @@
 Blog::Application.routes.draw do
 
   resources :articles do
-    resources :comments, only: [:create, :destroy]
   end
 
   root to: 'articles#root'
