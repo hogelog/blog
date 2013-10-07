@@ -54,6 +54,8 @@ gem 'highline'
 
 gem 'thin'
 
+gem 'redis-rails'
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'
@@ -62,6 +64,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
 end 
+
 group :development do
   gem 'capistrano'
   gem 'capistrano_colors'
