@@ -12,7 +12,8 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" }
   .panel-body
-    = markdown article.text
+    = preserve do
+      = markdown article.text
     .container
       %strong @#{article.user.username}
       = link_to article do

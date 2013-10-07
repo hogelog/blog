@@ -213,6 +213,7 @@ DEPENDENCIES
   capistrano
   capistrano-rbenv
   capistrano_colors
+  coderay
   coffee-rails (~> 4.0.0)
   debase
   dotenv-rails

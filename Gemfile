@@ -49,6 +49,7 @@ gem 'dotenv-rails'
 gem 'kaminari'
 
 gem 'redcarpet'
+gem 'coderay'
 
 gem 'highline'
 
