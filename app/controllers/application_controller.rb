@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
 
   def set_login_user
     if session[:user_id]
-      @login_user = User.find(session[:user_id])
+      user = User.find_by(id: session[:user_id])
+      @login_user = user if user
     end
   end
 
