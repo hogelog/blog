@@ -56,6 +56,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def preview
+    @article = Article.new(Article.extract_title_text(params[:text]))
+  end
+
   private
 
   def article_params

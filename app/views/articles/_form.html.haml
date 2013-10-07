@@ -8,10 +8,23 @@
 = form_for @article, html: {role: "form"} do |f|
   %p
     = f.text_area :title_text,
-                  id: "articleTextArea",
+                  id: "article_text_area",
                   class: "form-control",
                   placeholder: "Article text",
                   rows: 10
 
   %p
+    %button#preview_button.btn.btn-default= "Preview"
     = f.submit value: submit_text, class: "btn btn-default"
+  #preview_area{ data: { url: preview_articles_path } }
+
+  :javascript
+    $("#preview_button").click(function(event){
+      event.preventDefault();
+      var previewArea = $("#preview_area");
+      var url = previewArea.attr("data-url");
+      var text = $("#article_text_area").val();
+      $.getJSON(url, {text: text}, function(data){
+        previewArea.html(data.html)
+      });
+    });

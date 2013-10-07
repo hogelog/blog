@@ -1,6 +1,9 @@
 Blog::Application.routes.draw do
 
   resources :articles do
+    collection do
+      get 'preview'
+    end
   end
 
   root to: 'articles#root'
