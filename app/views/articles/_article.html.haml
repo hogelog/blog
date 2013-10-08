@@ -1,7 +1,8 @@
 .panel.panel-default
   .panel-heading
     %h1.panel-title
-      %strong= article.title
+      %strong
+        = link_to article.title, article
       - if @login_user
         = link_to "Edit",
                   edit_article_path(article),
