@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require facebook_sdk
+//= require google_analytics_head
 //= require_tree .
