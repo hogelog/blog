@@ -73,3 +73,7 @@ group :development do
   gem 'pry-doc'
   gem 'rails-footnotes', '>= 3.7.9'
 end
+
+group :production do
+  gem 'newrelic_rpm'
+end
