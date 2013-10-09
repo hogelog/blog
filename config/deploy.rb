@@ -9,18 +9,13 @@ set :repository,  "git@github.com:hogelog/blog.git"
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "blog.hogel.org"                          # Your HTTP server, Apache/etc
-role :app, "blog.hogel.org"                          # This may be the same as your `Web` server
-#role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
+role :web, "blog.hogel.org"
+role :app, "blog.hogel.org"
 
 ADDRESS = "127.0.0.1"
 PORT = 3331
 
 role :db,  "blog.hogel.org", primary: true
-task :db_setup, roles: [:db] do
-  run "mkdir -p -m 755 #{shared_path}/db"
-end
 
 set :deploy_to, "/home/blog/app"
 set :use_sudo, false
