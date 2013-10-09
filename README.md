@@ -1,4 +1,3 @@
-blog
-====
+# blog
 
-Blog application.
+My blog application (http://blog.hogel.org)
