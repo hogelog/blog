@@ -24,7 +24,7 @@
       var previewArea = $("#preview_area");
       var url = previewArea.attr("data-url");
       var text = $("#article_text_area").val();
-      $.getJSON(url, {text: text}, function(data){
+      $.post(url, {text: text}, function(data){
         previewArea.html(data.html)
-      });
+      }, "json");
     });

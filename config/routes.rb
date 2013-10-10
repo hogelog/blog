@@ -2,7 +2,7 @@ Blog::Application.routes.draw do
 
   resources :articles do
     collection do
-      get 'preview'
+      post 'preview'
     end
   end
 
@@ -11,24 +11,6 @@ Blog::Application.routes.draw do
   get '/login', to: 'login#show'
   post '/login', to: 'login#login'
   get '/logout', to: 'login#logout'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
   # Example resource route with sub-resources:
   #   resources :products do
@@ -43,7 +25,7 @@ Blog::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
