@@ -56,11 +56,14 @@ gem 'redis-rails'
 
 gem 'rqrcode'
 
+group :test do
+  gem 'machinist'
+end
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'
   gem 'rspec-rails', '~> 2.0'
-  gem 'factory_girl_rails'
   gem 'spring'
   gem 'pry-rails'
 end 

@@ -5,7 +5,7 @@ describe "articles/show.html.haml" do
 
   let(:markdown_text) { "hoge *fuga* moge."}
   let(:html) { markdown(markdown_text).chomp }
-  let(:article) { create(:article, text: markdown_text) }
+  let(:article) { Article.make!(text: markdown_text) }
   before do
     assign(:article, article)
     render

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ArticlesController do
-  let(:user) { create(:user) }
+  let(:user) { User.make! }
 
   describe "POST /articles" do
     context "with login user" do

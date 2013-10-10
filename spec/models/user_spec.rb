@@ -25,7 +25,7 @@ describe User do
   end
 
   describe "#articles" do
-    let(:article) { create(:article) }
+    let(:article) { Article.make! }
     let(:user) { article.user }
 
     it "returns user's articles" do

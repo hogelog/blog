@@ -59,11 +59,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.1)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -85,6 +80,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     libv8 (3.16.14.3)
+    machinist (2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -218,12 +214,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debase
   dotenv-rails
-  factory_girl_rails
   haml-rails
   highline
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  machinist
   mysql2
   newrelic_rpm
   pry-doc
