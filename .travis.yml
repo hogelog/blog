@@ -2,5 +2,6 @@ language: ruby
 rvm:
   - 2.0.0
 script:
+  - mysql -e 'CREATE DATABASE blog_test DEFAULT CHARACTER SET utf8;'
   - rake db:migrate RAILS_ENV=test
   - bundle exec rspec -fd spec
