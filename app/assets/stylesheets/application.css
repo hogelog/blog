@@ -12,5 +12,6 @@
  *= require bootstrap
  *= require bootstrap-theme
  *= require coderay
+ *= require qr_code
  *= require_tree .
  */

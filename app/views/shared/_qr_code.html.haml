@@ -1,0 +1,9 @@
+.qr_code<
+  %table<
+    - qrcode.modules.each_index do |x|
+      %tr<
+        - qrcode.modules.each_index do |y|
+          - if qrcode.dark?(x, y)
+            %td.black
+          - else
+            %td.white

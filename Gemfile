@@ -54,6 +54,8 @@ gem 'thin'
 
 gem 'redis-rails'
 
+gem 'rqrcode'
+
 group :development, :test do
   gem 'ruby-debug-ide'
   gem 'debase'

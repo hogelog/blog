@@ -13,6 +13,8 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" }
   .panel-body
+    .pull-right.container
+      = qr_code(article_url(article))
     = preserve do
       = markdown article.text
     .container
