@@ -7,6 +7,14 @@ class Article < ActiveRecord::Base
   validates :title, presence: true
   validates :text, presence: true
 
+  def prev
+    Article.where('id < ?', id).order(:id).last
+  end
+
+  def next
+    Article.where('id > ?', id).order(:id).first
+  end
+
   def self.extract_title_text(combined_text)
     lines = combined_text.to_s.split(/(?:\r\n|\r|\n)/)
     text = lines.size > 1 ? lines[1..-1].join("\r\n") : ""

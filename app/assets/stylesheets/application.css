@@ -11,7 +11,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap-theme
- *= require coderay
- *= require qr_code
+ *= require shared/coderay
+ *= require shared/qr_code
  *= require_tree .
  */

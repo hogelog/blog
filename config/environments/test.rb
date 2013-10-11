@@ -31,6 +31,6 @@ Blog::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-  # Print deprecation notices to the stderr.
-  config.active_support.deprecation = :stderr
+  # Print deprecation notices to the Rails logger.
+  config.active_support.deprecation = :log
 end

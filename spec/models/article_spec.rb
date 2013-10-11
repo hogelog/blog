@@ -49,4 +49,48 @@ describe Article do
       include_examples "extracts"
     end
   end
+
+  describe ".prev" do
+    context "when 3 articles exists" do
+      let!(:articles) { 3.times.map{ Article.make! } }
+
+      context "when first article" do
+        subject { Article.all.first.prev }
+
+        it "returns null" do
+          expect(subject).to be_nil
+        end
+      end
+
+      context "when third article" do
+        subject { Article.all.third.prev }
+
+        it "returns the second" do
+          expect(subject).to eq(articles.second)
+        end
+      end
+    end
+  end
+
+  describe ".next" do
+    context "with 3 articles" do
+      let!(:articles) { 3.times.map{ Article.make! } }
+
+      context "when first article" do
+        subject { Article.all.first.next }
+
+        it "returns the second" do
+          expect(subject).to eq(articles.second)
+        end
+      end
+
+      context "when third article" do
+        subject { Article.all.third.next }
+
+        it "returns first article" do
+          expect(subject).to be_nil
+        end
+      end
+    end
+  end
 end
