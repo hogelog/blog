@@ -32,6 +32,9 @@
     .social-share.container
       = render "shared/twitter", url: article_url(article)
       = render "shared/facebook_like", url: article_url(article)
+      = render "shared/hatena_bookmark",
+        url: article_url(article),
+        title: "#{article.title} - blog.hogel.org"
   .panel-footer
     .comments
       = render "shared/facebook_comment", url: article_url(article)
