@@ -3,6 +3,23 @@ require 'spec_helper'
 describe ArticlesController do
   let(:user) { User.make! }
 
+  describe "GET /articles" do
+    context "with no articles" do
+      it "shows no articles" do
+        get :index
+        expect(response).to be_success
+      end
+    end
+
+    context "with an article" do
+      let!(:article) { Article.make! }
+      it "shows an article" do
+        get :index
+        expect(response).to be_success
+      end
+    end
+  end
+
   describe "POST /articles" do
     context "with login user" do
       before { login(user) }

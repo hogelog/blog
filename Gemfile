@@ -74,6 +74,7 @@ group :development do
   gem 'pry-doc'
   gem 'rails-footnotes', '>= 3.7.9'
   gem 'brakeman'
+  gem 'guard-rspec'
 end
 
 group :production do
