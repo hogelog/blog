@@ -81,4 +81,8 @@ Blog::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.filter_parameters << :password
+
+  # cache config
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=2592000"
 end
