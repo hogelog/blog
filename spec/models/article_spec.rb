@@ -93,4 +93,15 @@ describe Article do
       end
     end
   end
+
+  describe ".hiragana" do
+    context "with kanji article" do
+      let(:article) { Article.make(title: "漢字のタイトル", text: "漢字の文章") }
+
+      it "returns hiragana entry" do
+        expect(article.hiragana.title).to eq("かんじのタイトル")
+        expect(article.hiragana.text).to eq("かんじのぶんしょう")
+      end
+    end
+  end
 end

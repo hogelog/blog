@@ -1,6 +1,10 @@
 Blog::Application.routes.draw do
 
   resources :articles do
+    member do
+      get 'hiragana'
+    end
+
     collection do
       post 'preview'
     end

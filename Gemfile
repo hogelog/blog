@@ -53,6 +53,8 @@ gem 'redis-rails'
 
 gem 'rqrcode'
 
+gem 'tataki'
+
 group :test do
   gem 'machinist'
 end

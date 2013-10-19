@@ -1,7 +1,8 @@
+- hiragana ||= false
 - @page_title = @article.title
 
 #article_show
-  = render @article
+  = render @article, hiragana: hiragana
   
   %ul.pager
     %li.previous

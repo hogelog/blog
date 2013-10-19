@@ -31,4 +31,11 @@ class Article < ActiveRecord::Base
       "#{title}\r\n#{text}"
     end
   end
+
+  @@tataki ||= ::Tataki::Converter::SkkJisyo.new(%w[M jinmei])
+  def hiragana
+    self.title = @@tataki.to_kana(self.title)
+    self.text = @@tataki.to_kana(self.text)
+    self
+  end
 end

@@ -60,6 +60,11 @@ class ArticlesController < ApplicationController
     @article = Article.new(Article.extract_title_text(params[:text]))
   end
 
+  def hiragana
+    @article = Article.find(params[:id]).hiragana
+    render :show, locals: { hiragana: true }
+  end
+
   private
 
   def article_params
