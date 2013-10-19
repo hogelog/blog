@@ -71,6 +71,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'pry-doc'
   gem 'rails-footnotes', '>= 3.7.9'
+  gem 'brakeman'
 end
 
 group :production do
