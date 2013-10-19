@@ -3,7 +3,7 @@
     %h1.panel-title
       %strong
         = link_to article.title, article
-        - if hiragana
+        - if article.hiragana?
           = link_to "Normal",
                     article_path(article),
                     class: "btn btn-default btn-xs"

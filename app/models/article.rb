@@ -36,6 +36,11 @@ class Article < ActiveRecord::Base
   def hiragana
     self.title = @@tataki.to_kana(self.title)
     self.text = @@tataki.to_kana(self.text)
+    @hiragana = true
     self
+  end
+
+  def hiragana?
+    @hiragana
   end
 end
