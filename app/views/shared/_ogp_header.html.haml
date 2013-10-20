@@ -1,7 +1,12 @@
-- og_title = @page_title ? "#{@page_title} - blog.hogel.org" : "blog.hogel.org"
+- if @article
+  - title = @article.social_title
+  - description = @article.text
+- else
+  - title = @page_title ? "#{@page_title} - blog.hogel.org" : "blog.hogel.org"
+  - description = 'hogelogのブログです'
 %meta{ property: "fb:admins", content: "1258700525" }
 %meta{ property: "fb:app_id", content: "184374358417632" }
-%meta{ property: "og:title", content: "#{og_title}" }
+%meta{ property: "og:title", content: "#{title}" }
 %meta{ property: "og:type", content: "blog" }
 %meta{ property: "og:url", content: request.url }
-%meta{ property: "og:description", content: "hogelogのblogです" }
+%meta{ property: "og:description", content: description }
