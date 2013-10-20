@@ -9,6 +9,7 @@
     = csrf_meta_tags
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = render "shared/ogp_header"
+    = auto_discovery_link_tag :rss, articles_path(format: :rss)
   %body
     = render 'shared/google_analytics_body'
     .fb-root
