@@ -1,0 +1,10 @@
+%h3<
+  %span.glyphicon.glyphicon-list
+  Recent Articles
+.panel.panel-default
+  %ul.list-group
+    - articles.each do |article|
+      %li.list-group-item<
+        = link_to article do
+          = article.title
+          %small (#{datetime_format(article.created_at)})

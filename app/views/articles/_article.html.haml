@@ -12,14 +12,14 @@
                     hiragana_article_path(article),
                     class: "btn btn-default btn-xs"
       - if @login_user
-        = link_to "Edit",
-                  edit_article_path(article),
-                  class: "btn btn-default btn-xs"
-        = link_to "Destroy",
-                  article,
+        = link_to edit_article_path(article),
+          class: "btn btn-default btn-xs" do
+          %span.glyphicon.glyphicon-edit
+        = link_to article,
                   class: "btn btn-default btn-xs",
                   method: :delete,
-                  data: { confirm: "Are you sure?" }
+                  data: { confirm: "Are you sure?" } do
+          %span.glyphicon.glyphicon-trash
   .panel-body
     .pull-right.container
       = qr_code(article_url(article))

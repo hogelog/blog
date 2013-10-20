@@ -4,3 +4,4 @@
   = render @article
 
   = render "pager", article: @article
+  = render "recent_articles", articles: Article.recent(5)
