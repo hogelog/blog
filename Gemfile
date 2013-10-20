@@ -60,8 +60,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'ruby-debug-ide'
-  gem 'debase'
   gem 'rspec-rails', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'

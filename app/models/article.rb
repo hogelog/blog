@@ -43,4 +43,8 @@ class Article < ActiveRecord::Base
   def hiragana?
     @hiragana
   end
+
+  def social_title
+    "#{title} - blog.hogel.org"
+  end
 end
