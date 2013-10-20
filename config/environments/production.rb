@@ -85,4 +85,8 @@ Blog::Application.configure do
   # cache config
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=2592000"
+
+  # deploy web font config
+  config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+  config.assets.precompile << ->(path){ path =~ /\.(?:svg|eot|woff|ttf)$/ }
 end
