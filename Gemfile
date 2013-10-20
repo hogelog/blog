@@ -34,8 +34,6 @@ end
 
 gem 'haml-rails'
 
-gem 'bootstrap3-rails'
-
 gem 'mysql2'
 
 gem 'dotenv-rails'

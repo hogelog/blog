@@ -1,0 +1,22 @@
+- prev_article = article.prev
+- next_article = article.next
+%ul.pager
+  - if prev_article
+    %li
+      = link_to prev_article do
+        %span.glyphicon.glyphicon-chevron-left
+        = prev_article.title
+  - else
+    %li.disabled
+      %span.glyphicon.glyphicon-chevron-left
+  %li
+    = link_to root_path do
+      %span.glyphicon.glyphicon-home
+  - if next_article
+    %li
+      = link_to next_article do
+        = next_article.title
+        %span.glyphicon.glyphicon-chevron-right
+  - else
+    %li.disabled
+      %span.glyphicon.glyphicon-chevron-right

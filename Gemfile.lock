@@ -27,8 +27,6 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
-    bootstrap3-rails (3.0.1)
-      rails (~> 4.0.0)
     brakeman (2.1.2)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -255,7 +253,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap3-rails
   brakeman
   capistrano
   capistrano-rbenv
