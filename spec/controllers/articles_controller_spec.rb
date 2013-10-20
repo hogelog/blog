@@ -13,6 +13,7 @@ describe ArticlesController do
 
     context "with an article" do
       let!(:article) { Article.make! }
+
       it "shows an article" do
         get :index
         expect(response).to be_success
@@ -38,6 +39,17 @@ describe ArticlesController do
       it "redirects to login" do
         post :create, article: {title_text: "title!\r\narticle!"}
         expect(response).to redirect_to(login_path)
+      end
+    end
+  end
+
+  describe "GET /articles/:id/hiragana" do
+    context "when guest user" do
+      let(:article) { Article.make! }
+
+      it "shows an hiragana article" do
+        get :hiragana, id: article.id
+        expect(response).to be_success
       end
     end
   end

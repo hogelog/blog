@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, except: [:root, :index, :show]
+  before_action :require_login, except: [:root, :index, :show, :hiragana]
 
   def new
     @article = Article.new
