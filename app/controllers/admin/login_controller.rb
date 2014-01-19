@@ -1,4 +1,4 @@
-class LoginController < ApplicationController
+class Admin::LoginController < AdminController
 
   rescue_from User::InvalidUser, with: :unauthorized_error
 

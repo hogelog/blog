@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe LoginController do
+describe Admin::LoginController do
 
-  describe "GET /login" do
+  describe "GET /admin/login" do
     context "when guest" do
       it "renders show" do
         get :show

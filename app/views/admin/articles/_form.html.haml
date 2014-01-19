@@ -5,7 +5,7 @@
     %ul
       - @article.errors.full_messages.each do |msg|
         %li.label.label-warning= msg
-= form_for @article, html: {role: "form"} do |f|
+= form_for @article, url: admin_article_path(@article), html: {role: "form"} do |f|
   %p
     = f.text_area :title_text,
                   id: "article_text_area",
@@ -16,7 +16,7 @@
   %p
     %button#preview_button.btn.btn-default= "Preview"
     = f.submit value: submit_text, class: "btn btn-default"
-  #preview_area{ data: { url: preview_articles_path } }
+  #preview_area{ data: { url: preview_admin_articles_path } }
 
   :javascript
     $("#preview_button").click(function(event){

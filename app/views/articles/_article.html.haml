@@ -12,10 +12,10 @@
                     hiragana_article_path(article),
                     class: "btn btn-default btn-xs"
       - if @login_user
-        = link_to edit_article_path(article),
+        = link_to edit_admin_article_path(article),
           class: "btn btn-default btn-xs" do
           %span.glyphicon.glyphicon-edit
-        = link_to article,
+        = link_to admin_article_path(article),
                   class: "btn btn-default btn-xs",
                   method: :delete,
                   data: { confirm: "Are you sure?" } do

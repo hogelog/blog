@@ -1,0 +1,13 @@
+- @page_title = 'Archive'
+
+- if @articles.blank?
+  There are no articles.
+- else
+  %ul
+  - @articles.each do |article|
+    %li
+      = link_to edit_admin_article_path(article) do
+        %span.glyphicon.glyphicon-pencil
+        = article.title
+        %small (#{datetime_format(article.created_at)})
+  = paginate @articles

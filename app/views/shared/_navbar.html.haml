@@ -14,15 +14,14 @@
             Archives
         - if @login_user
           %li
-            = link_to new_article_path do
+            = link_to new_admin_article_path do
               %span.glyphicon.glyphicon-pencil
               New Article
           %li
-            = link_to logout_path do
+            = link_to admin_articles_path do
+              %span.glyphicon.glyphicon-book
+              Articles
+          %li
+            = link_to admin_logout_path do
               %span.glyphicon.glyphicon-user
               Logout
-        - else
-          %li
-            = link_to login_path do
-              %span.glyphicon.glyphicon-user
-              Login
