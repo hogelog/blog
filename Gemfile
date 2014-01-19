@@ -64,9 +64,10 @@ group :development, :test do
 end 
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'capistrano-rbenv'
+  gem 'capistrano', '~> 3.0'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler'
   gem 'pry-doc'
   gem 'rails-footnotes', '>= 3.7.9'
   gem 'brakeman'

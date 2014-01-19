@@ -1,56 +1,67 @@
-require 'capistrano_colors'
-require 'bundler/capistrano'
-require 'capistrano-rbenv'
-require 'dotenv/capistrano'
-
 set :application, "blog"
-set :repository,  "git@github.com:hogelog/blog.git"
+set :repo_url,  "git@github.com:hogelog/blog.git"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "blog.hogel.org"
-role :app, "blog.hogel.org"
-
 ADDRESS = "127.0.0.1"
 PORT = 3331
-
-role :db,  "blog.hogel.org", primary: true
 
 set :deploy_to, "/home/blog/app"
 set :use_sudo, false
 
-set :rbenv_ruby_version, "2.0.0-p247"
-set :default_environment, {
-  "RBENV_ROOT" => "#{rbenv_path}",
-  "PATH" => "#{rbenv_path}/shims:#{rbenv_path}/bin:$PATH"
-}
+# rbenv
+set :rbenv_type, :user
+set :rbenv_ruby, "2.0.0-p247"
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails thin}
+set :rbenv_roles, :all # default value
+#set :default_environment, {
+#  "RBENV_ROOT" => "#{rbenv_path}",
+#  "PATH" => "#{rbenv_path}/shims:#{rbenv_path}/bin:$PATH"
+#}
 
 THIN_CONF = File.join(current_path, "config", "thin.yml")
 THIN_PARAM = "-C #{THIN_CONF} --port #{PORT} --address #{ADDRESS} -e production"
-THIN_CMD = "cd #{current_path}; bundle exec thin #{THIN_PARAM}"
+THIN_CMD = "exec thin #{THIN_PARAM}"
+
 namespace :deploy do
-  task :start, roles: :app do
-    run "#{THIN_CMD} start"
+  desc "Start app server"
+  task :start do
+    on roles(:app), in: :sequence, wait: 5 do
+      within current_path do
+        execute :bundle, "#{THIN_CMD} start"
+      end
+    end
   end
-  task :stop, roles: :app do
-    run "#{THIN_CMD} stop"
+
+  desc "Stop app server"
+  task :stop do
+    on roles(:app), in: :sequence, wait: 5 do
+      within current_path do
+        execute :bundle, "#{THIN_CMD} stop"
+      end
+    end
   end
-  task :restart, roles: :app do
-    run "#{THIN_CMD} restart"
+
+  desc "Restart app server"
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      within current_path do
+        execute :bundle, "#{THIN_CMD} restart"
+      end
+    end
   end
+
+  desc "Copy .env"
+  task :dotenv do
+    on roles(:app), in: :sequence do
+      within release_path do
+        execute :cp, shared_path.join(".env"), "."
+      end
+    end
+  end
+
+  after :finishing, 'deploy:cleanup'
+  before :migrate, 'deploy:dotenv'
 end
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
