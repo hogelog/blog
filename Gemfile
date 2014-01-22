@@ -53,6 +53,8 @@ gem 'rqrcode'
 
 gem 'tataki'
 
+gem 'omniauth-google-oauth2'
+
 group :test do
   gem 'machinist'
 end

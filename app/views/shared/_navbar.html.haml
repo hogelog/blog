@@ -8,20 +8,17 @@
       = link_to 'hogelog blog! blog!', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse.header-navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to articles_path do
-            %span.glyphicon.glyphicon-book
-            Archives
         - if @login_user
           %li
-            = link_to new_admin_article_path do
-              %span.glyphicon.glyphicon-pencil
-              New Article
+            = link_to admin_path do
+              %span.glyphicon.glyphicon-book Articles
           %li
-            = link_to admin_articles_path do
-              %span.glyphicon.glyphicon-book
-              Articles
+            = link_to new_admin_article_path do
+              %span.glyphicon.glyphicon-pencil New Article
           %li
             = link_to admin_logout_path do
-              %span.glyphicon.glyphicon-user
-              Logout
+              %span.glyphicon.glyphicon-user Logout
+        - else
+          %li
+            = link_to articles_path do
+              %span.glyphicon.glyphicon-book Archives

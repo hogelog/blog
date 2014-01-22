@@ -19,5 +19,8 @@ Blog::Application.routes.draw do
       end
     end
     get '/', to: 'articles#index'
+
+    get '/google_oauth2/callback', to: 'login#google_oauth2'
   end
+
 end

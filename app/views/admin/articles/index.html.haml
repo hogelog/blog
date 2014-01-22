@@ -6,8 +6,9 @@
   %ul
   - @articles.each do |article|
     %li
-      = link_to edit_admin_article_path(article) do
-        %span.glyphicon.glyphicon-pencil
+      = link_to article do
         = article.title
         %small (#{datetime_format(article.created_at)})
+      = link_to edit_admin_article_path(article) do
+        %span.glyphicon.glyphicon-pencil
   = paginate @articles

@@ -16,6 +16,17 @@ class Admin::LoginController < AdminController
     redirect_to root_path
   end
 
+  def google_oauth2
+    omniauth = request.env['omniauth.auth']
+    google_auth_user = GoogleAuthUser.find_by(provider: omniauth[:provider], uid: omniauth[:uid])
+    if google_auth_user
+      session[:user_id] = google_auth_user.user_id
+      redirect_to admin_path
+    else
+      head 401
+    end
+  end
+
   private
 
   def login_params
