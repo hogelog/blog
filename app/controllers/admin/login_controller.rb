@@ -1,14 +1,7 @@
 class Admin::LoginController < AdminController
-
-  rescue_from User::InvalidUser, with: :unauthorized_error
+  skip_before_action :require_login
 
   def show
-  end
-
-  def login
-    login_user = User.login_user(login_params)
-    session[:user_id] = login_user.id
-    redirect_to root_path
   end
 
   def logout
@@ -25,11 +18,5 @@ class Admin::LoginController < AdminController
     else
       head 401
     end
-  end
-
-  private
-
-  def login_params
-    params.require(:login).permit(:username, :password)
   end
 end

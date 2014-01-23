@@ -1,15 +1,1 @@
-%h1 Login
-= form_for :login,
-    html: {class: 'form-inline', role: 'form'} do |f|
-  .form-group
-    = f.text_field :username,
-                   class: 'form-control',
-                   placeholder: 'username'
-  .form-group
-    = f.password_field :password,
-                       class: 'form-control',
-                       placeholder: 'password'
-  .form-group
-    = f.submit 'Login', class: 'btn btn-default'
-
-%p= link_to 'Google Login', '/admin/google_oauth2'
+%p= link_to 'Login with Google Account', '/admin/google_oauth2', class: 'btn btn-default'

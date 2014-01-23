@@ -7,7 +7,6 @@ end
 require 'highline/import'
 
 username = ask("Username: ")
-password = ask("Password: ") {|q| q.echo = false}
 if ask("Create user? y or not: ") =~ /^y(?:es)?/
-  User.create_user(username, password)
+  User.create(username: username)
 end

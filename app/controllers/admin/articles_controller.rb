@@ -1,6 +1,4 @@
 class Admin::ArticlesController < AdminController
-  before_action :require_login
-
   INDEX_PER_PAGE = 10
   def index
     @articles = Article.

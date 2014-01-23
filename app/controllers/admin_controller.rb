@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_action :set_login_user
+  before_action :require_login
 
   protected
 
@@ -15,10 +16,6 @@ class AdminController < ApplicationController
       return @login_user = user if user
     end
     expires_in 30.minutes, public: true
-  end
-
-  def unauthorized_error(exception)
-    head 401
   end
 end
 
