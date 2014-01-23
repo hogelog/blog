@@ -39,7 +39,7 @@ class Admin::ArticlesController < AdminController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to root_path
+    redirect_to admin_path
   end
 
   def preview

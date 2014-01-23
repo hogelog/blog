@@ -11,4 +11,8 @@
         %small (#{datetime_format(article.created_at)})
       = link_to edit_admin_article_path(article) do
         %span.glyphicon.glyphicon-pencil
+      = link_to admin_article_path(article),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do
+        %span.glyphicon.glyphicon-trash
   = paginate @articles
