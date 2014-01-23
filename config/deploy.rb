@@ -9,10 +9,12 @@ PORT = 3331
 
 set :deploy_to, "/home/blog/app"
 set :use_sudo, false
+set :linked_files, %w{.env}
+set :linked_dirs, %w{tmp/cache tmp/pids log public/assets}
 
 # rbenv
 set :rbenv_type, :user
-set :rbenv_ruby, "2.0.0-p247"
+set :rbenv_ruby, "2.1.0"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails thin}
 set :rbenv_roles, :all # default value
@@ -53,15 +55,5 @@ namespace :deploy do
     end
   end
 
-  desc "Copy .env"
-  task :dotenv do
-    on roles(:app), in: :sequence do
-      within release_path do
-        execute :cp, shared_path.join(".env"), "."
-      end
-    end
-  end
-
   after :finishing, 'deploy:cleanup'
-  before :migrate, 'deploy:dotenv'
 end
