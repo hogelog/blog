@@ -38,6 +38,8 @@ gem 'mysql2'
 
 gem 'dotenv-rails'
 
+gem 'settingslogic'
+
 gem 'kaminari'
 
 gem 'redcarpet'
