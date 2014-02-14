@@ -1,7 +1,7 @@
 module MarkdownHelper
   class Renderer < Redcarpet::Render::HTML
     def block_code(code, language)
-      CodeRay.highlight(code, language)
+      CodeRay.highlight(code, language || :text)
     end
   end
 
