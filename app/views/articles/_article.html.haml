@@ -27,3 +27,4 @@
   .panel-footer
     .comments
       = render_facebook_comment url_for(article)
+      = render_disqus "articles/#{article.id}", article_url(article), article.social_title

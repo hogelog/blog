@@ -3,7 +3,13 @@ module ApplicationHelper
     datetime.localtime.strftime('%Y/%m/%d %H:%M %Z')
   end
 
+  def render_disqus(id, url, title)
+    return unless Settings.use_disqus
+    render "shared/disqus", id: id, url: url, title: title
+  end
+
   def render_facebook_comment(url)
+    return unless Settings.use_facebook_comment
     render "shared/facebook_comment", url: url
   end
 

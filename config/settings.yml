@@ -1,3 +1,5 @@
+use_disqus: true
+use_facebook_comment: false
 use_facebook_like: true
 use_hatena_bookmark_button: true
 use_twitter_button: false
