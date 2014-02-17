@@ -21,10 +21,10 @@
       = link_to article do
         %small (#{datetime_format(article.created_at)})
     .social-share.container
-      = render_facebook_like url_for(article)
-      = render_hatena_bookmark_button url_for(article), title: article.social_title
-      = render_twitter_button url_for(article), title: article.social_title
+      = render_facebook_like article_url(article)
+      = render_hatena_bookmark_button article_url(article), title: article.social_title
+      = render_twitter_button article_url(article), title: article.social_title
   .panel-footer
     .comments
-      = render_facebook_comment url_for(article)
+      = render_facebook_comment article_url(article)
       = render_disqus "articles/#{article.id}", article_url(article), article.social_title
