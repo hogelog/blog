@@ -6,7 +6,7 @@
   %ul
   - @articles.each do |article|
     %li
-      = link_to article do
+      = link_to admin_article_path(article) do
         = article.title
         %small (#{datetime_format(article.created_at)})
       = link_to edit_admin_article_path(article) do

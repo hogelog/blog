@@ -7,6 +7,11 @@ class Admin::ArticlesController < AdminController
       per(INDEX_PER_PAGE)
   end
 
+  def show
+    @article = Article.find(params[:id])
+    render "articles/show"
+  end
+
   def new
     @article = Article.new
   end
@@ -29,7 +34,7 @@ class Admin::ArticlesController < AdminController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to admin_article_path(@article)
     else
       render 'edit'
     end

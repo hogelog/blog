@@ -1,7 +1,7 @@
 - @page_title = @article.title
 
 #article_show
-  = render @article
+  = render "articles/article", article: @article
 
-  = render "pager", article: @article
-  = render "recent_articles", articles: Article.recent(5)
+  = render "articles/pager", article: @article
+  = render "articles/recent_articles", articles: Article.recent(5)

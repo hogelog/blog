@@ -11,6 +11,9 @@
           = link_to "ひらがな",
                     hiragana_article_path(article),
                     class: "btn btn-default btn-xs"
+        - if @login_user
+          = link_to edit_admin_article_path(article), class: "btn btn-default btn-xs" do
+            %span.glyphicon.glyphicon-pencil
   .panel-body
     .pull-right.container
       = qr_code(article_url(article))
