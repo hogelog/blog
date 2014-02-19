@@ -1,3 +1,4 @@
+- show_comment ||= false
 .panel.panel-default
   .panel-heading
     %h1.panel-title
@@ -28,6 +29,7 @@
       = render_hatena_bookmark_button article_url(article), title: article.social_title
       = render_twitter_button article_url(article), title: article.social_title
   .panel-footer
-    .comments
-      = render_facebook_comment article_url(article)
-      = render_disqus "articles/#{article.id}", article_url(article), article.social_title
+    - if show_comment
+      .comments
+        = render_facebook_comment article_url(article)
+        = render_disqus "articles/#{article.id}", article_url(article), article.social_title
